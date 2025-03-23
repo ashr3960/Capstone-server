@@ -73,4 +73,39 @@ export const getAllUsers = async (req, res) => {
     }
 };
 
-export default { createUser, getAllUsers, loginUser };
+
+// GET: Get events associated with a specific user
+export const getUserEvents = async (req, res) => {
+    try {
+      const userId = req.params.id;  
+  
+      // Fetch the user from the database
+      const user = await knex("Users").where({ id: userId }).first();
+  
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+  
+      // Check if user is authorized 
+      if (user.is_authorized) {
+        // Fetch public events for authorized users
+        const publicEvents = await knex("PublicEvents")
+          .where({ user_id: userId })
+          .select("*");
+  
+        return res.status(200).json({ publicEvents });
+      } else {
+        // Fetch private events for non-authorized users
+        const privateEvents = await knex("PrivateEvents")
+          .where({ user_id: userId })
+          .select("*");
+  
+        return res.status(200).json({ privateEvents });
+      }
+    } catch (error) {
+      console.error("Error fetching user events:", error);
+      res.status(500).json({ error: "Failed to fetch events" });
+    }
+  };
+
+export default { createUser, getAllUsers, loginUser, getUserEvents };

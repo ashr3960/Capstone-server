@@ -12,4 +12,7 @@ router.post("/login", usersController.loginUser);
 // GET: Get all users 
 router.get("/", usersController.getAllUsers);
 
+// GET: Get events for the specific user 
+router.get("/events/:id", usersController.getUserEvents);
+
 export default router;
