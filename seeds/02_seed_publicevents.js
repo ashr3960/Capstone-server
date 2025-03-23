@@ -13,6 +13,7 @@ export async function seed(knex) {
       location: "New York, USA",
       host: "Tech Community Inc.",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      user_id: 1,
     },
     {
       title: "Music Festival",
@@ -21,6 +22,7 @@ export async function seed(knex) {
       location: "Los Angeles, USA",
       host: "MusicVibes Ltd.",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      user_id: 1.
     },
     {
       title: "Startup Pitch Night",
@@ -29,6 +31,7 @@ export async function seed(knex) {
       location: "San Francisco, USA",
       host: "Silicon Valley Network",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      user_id: 1,
     },
     {
       title: "Food & Wine Expo",
@@ -37,6 +40,7 @@ export async function seed(knex) {
       location: "Paris, France",
       host: "Gastronomy Club",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      user_id: 2,
     },
     {
       title: "AI & Machine Learning Summit",
@@ -45,6 +49,7 @@ export async function seed(knex) {
       location: "Boston, USA",
       host: "AI Research Group",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      user_id: 2,
     },
     {
       title: "Gaming Expo",
@@ -53,6 +58,7 @@ export async function seed(knex) {
       location: "Tokyo, Japan",
       host: "E-Sports Alliance",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      user_id: 2,
     },
     {
       title: "Health & Wellness Retreat",
@@ -61,6 +67,7 @@ export async function seed(knex) {
       location: "Bali, Indonesia",
       host: "Mind & Body Wellness",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      user_id: 1,
     },
     {
       title: "Car Enthusiast Show",
@@ -69,6 +76,7 @@ export async function seed(knex) {
       location: "Dubai, UAE",
       host: "Auto Passion Club",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      user_id: 1,
     },
     {
       title: "Fashion Week Runway",
@@ -77,6 +85,7 @@ export async function seed(knex) {
       location: "Milan, Italy",
       host: "Elite Fashion Association",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      user_id: 1,
     },
     {
       title: "Book Fair & Writers Meetup",
@@ -85,6 +94,7 @@ export async function seed(knex) {
       location: "London, UK",
       host: "Literary Society",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      user_id: 2,
     },
   ]);
 }

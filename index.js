@@ -4,6 +4,7 @@ import cors from "cors";
 import initKnex from "knex";
 import config from "./knexfile.js"
 import PublicEventRoutes from "./routes/publicevent-routes.js";
+import UsersRoutes from "./routes/users-routes.js"
 
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(express.json());
 
 //Add routes here
 app.use("/api/publicevents", PublicEventRoutes);
+app.use("/api/users", UsersRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
