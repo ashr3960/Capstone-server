@@ -9,7 +9,7 @@ router.get("/", PublicEventsController.getAllEvents);
 // GET all public events within the next two weeks
 router.get("/upcomingevents", PublicEventsController.getUpcomingEvents);
 
-// GET a single event by ID
+// GET a single public event by ID
 router.get("/:id", PublicEventsController.getEventById);
 
 // POST a new public event

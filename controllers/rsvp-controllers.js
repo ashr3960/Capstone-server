@@ -6,10 +6,12 @@ const knex = initKnex(config);
 // POST: RSVP to an Event
 export const rsvpToEvent = async (req, res) => {
     try {
-        const { userId, eventId } = req.body;
+        const { userId, eventId, eventType } = req.body; // added eventType to differentiate between public and private
 
-        // Check if the event exists
-        const event = await knex("PublicEvents").where({ id: eventId }).first();
+        // Check if the event exists based on the eventType
+        const eventTable = eventType === "private" ? "PrivateEvents" : "PublicEvents";
+        const event = await knex(eventTable).where({ id: eventId }).first();
+
         if (!event) {
             return res.status(404).json({ error: "Event not found" });
         }
@@ -33,6 +35,7 @@ export const rsvpToEvent = async (req, res) => {
         res.status(500).json({ error: "Failed to RSVP" });
     }
 };
+
 
 // GET: Get RSVP'd Events for a User
 export const getUserRSVPEvents = async (req, res) => {
