@@ -4,7 +4,7 @@
  */
 export function up(knex) {
     return knex.schema.createTable("PrivateEvents", (table) => {
-      table.increments("id").primary();
+      table.uuid("id").primary().defaultTo(knex.raw("(UUID())"));
       table.string("title").notNullable();
       table.text("description").notNullable();
       table.timestamp("event_date").notNullable();

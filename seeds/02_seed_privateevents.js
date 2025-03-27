@@ -15,7 +15,7 @@ export async function seed(knex) {
       location: "New York, USA",
       host: "John Doe",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
-      user_id: 3, 
+      user_id: 3,
     },
     {
       title: "Family Reunion",
@@ -24,7 +24,7 @@ export async function seed(knex) {
       location: "Chicago, USA",
       host: "John Doe",
       image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
-      user_id: 3,
+      user_id: 3, 
     },
   ]);
 }

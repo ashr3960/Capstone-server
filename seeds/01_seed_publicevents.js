@@ -9,10 +9,10 @@ export async function seed(knex) {
     {
       title: "Tech Conference 2025",
       description: "Join industry leaders for a day of insightful discussions.",
-      event_date: "2025-04-15 09:00:00", 
+      event_date: "2025-04-15 09:00:00",
       location: "New York, USA",
       host: "Tech Community Inc.",
-      image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      image: "https://partycrew.ca/wp-content/uploads/2015/09/Tech-Conference.jpg", 
       user_id: 1,
     },
     {
@@ -21,8 +21,8 @@ export async function seed(knex) {
       event_date: "2025-06-20 12:00:00",
       location: "Los Angeles, USA",
       host: "MusicVibes Ltd.",
-      image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
-      user_id: 1.
+      image: "https://partycrew.ca/wp-content/uploads/2015/09/Music-Festival.jpg",
+      user_id: 1,
     },
     {
       title: "Startup Pitch Night",
@@ -30,7 +30,7 @@ export async function seed(knex) {
       event_date: "2025-05-10 18:00:00",
       location: "San Francisco, USA",
       host: "Silicon Valley Network",
-      image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      image: "https://partycrew.ca/wp-content/uploads/2015/09/Startup-Pitch-Night.jpg", 
       user_id: 1,
     },
     {
@@ -39,7 +39,7 @@ export async function seed(knex) {
       event_date: "2025-08-12 11:00:00",
       location: "Paris, France",
       host: "Gastronomy Club",
-      image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      image: "https://partycrew.ca/wp-content/uploads/2015/09/Food-Wine-Expo.jpg", 
       user_id: 2,
     },
     {
@@ -48,7 +48,7 @@ export async function seed(knex) {
       event_date: "2025-09-05 09:00:00",
       location: "Boston, USA",
       host: "AI Research Group",
-      image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      image: "https://partycrew.ca/wp-content/uploads/2015/09/AI-Machine-Learning.jpg", 
       user_id: 2,
     },
     {
@@ -57,7 +57,7 @@ export async function seed(knex) {
       event_date: "2025-11-15 10:00:00",
       location: "Tokyo, Japan",
       host: "E-Sports Alliance",
-      image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      image: "https://partycrew.ca/wp-content/uploads/2015/09/Gaming-Expo.jpg", 
       user_id: 2,
     },
     {
@@ -66,7 +66,7 @@ export async function seed(knex) {
       event_date: "2025-07-18 14:00:00",
       location: "Bali, Indonesia",
       host: "Mind & Body Wellness",
-      image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      image: "https://partycrew.ca/wp-content/uploads/2015/09/Health-Wellness-Retreat.jpg", 
       user_id: 1,
     },
     {
@@ -75,7 +75,7 @@ export async function seed(knex) {
       event_date: "2025-10-10 16:00:00",
       location: "Dubai, UAE",
       host: "Auto Passion Club",
-      image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      image: "https://partycrew.ca/wp-content/uploads/2015/09/Car-Show.jpg", 
       user_id: 1,
     },
     {
@@ -84,7 +84,7 @@ export async function seed(knex) {
       event_date: "2025-09-22 20:00:00",
       location: "Milan, Italy",
       host: "Elite Fashion Association",
-      image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      image: "https://partycrew.ca/wp-content/uploads/2015/09/Fashion-Week.jpg", 
       user_id: 1,
     },
     {
@@ -93,7 +93,7 @@ export async function seed(knex) {
       event_date: "2025-12-05 09:00:00",
       location: "London, UK",
       host: "Literary Society",
-      image: "https://partycrew.ca/wp-content/uploads/2015/09/Corporate-Events-DJ.jpg",
+      image: "https://partycrew.ca/wp-content/uploads/2015/09/Book-Fair.jpg", 
       user_id: 2,
     },
   ]);

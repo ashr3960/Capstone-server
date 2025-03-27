@@ -6,11 +6,11 @@ export function up(knex) {
     return knex.schema.createTable("RSVPs", (table) => {
         table.increments("id").primary();
         
-        // Foreign keys for user and event
+        // Foreign keys for user and event with compatible data types
         table.integer("user_id").unsigned().notNullable();
         table.foreign("user_id").references("Users.id").onDelete("CASCADE");
     
-        table.integer("event_id").unsigned().notNullable();
+        table.uuid("event_id").notNullable();
         table.foreign("event_id").references("PublicEvents.id").onDelete("CASCADE");
     
         table.boolean("confirmed").defaultTo(false); // Track if RSVP is confirmed
@@ -27,4 +27,3 @@ export function up(knex) {
 export function down(knex) {
     return knex.schema.dropTable("RSVPs");
 }
-  

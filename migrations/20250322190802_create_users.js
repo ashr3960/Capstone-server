@@ -15,11 +15,18 @@ export function up(knex) {
     });
   }
   
-  /**
-   * @param { import("knex").Knex } knex
-   * @returns { Promise<void> }
-   */
-  export function down(knex) {
-    return knex.schema.dropTable("Users");
-  }
+/**
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> }
+ */
+export function down(knex) {
+  return knex.schema
+    .table('rsvps', (table) => {
+      table.dropForeign('user_id');
+    })
+    .then(() => {
+      return knex.schema.dropTable('Users');
+    });
+}
+
   
