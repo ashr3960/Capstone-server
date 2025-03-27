@@ -84,42 +84,64 @@ export const getPublicEventById = async (req, res) => {
     }
 };
 
-// POST a new public event (with image upload)
+// POST single public event 
 export const createPublicEvent = async (req, res) => {
     try {
-        console.log("Incoming Request Body:", req.body);
-        console.log("Incoming Request Files:", req.file);
-
+        // Extract event details from the request body
         const { title, description, event_date, location, host } = req.body;
+        const user_id = req.body.user_id; // Extract user_id from FormData
 
-        if (!title || !description || !event_date || !location || !host) {
-            return res.status(400).json({ error: "All fields are required" });
-        }
-
-        const user_id = req.body.user_id;
-
+        // Validate required fields
         if (!user_id) {
             console.log("❌ User ID is missing in request body");
             return res.status(400).json({ error: "User ID is required" });
         }
 
-        // Save the uploaded image filename
+        if (!host) {
+            console.log("❌ Host is missing in request body");
+            return res.status(400).json({ error: "Host is required" });
+        }
+
+        console.log("✅ Received User ID:", user_id);
+        console.log("✅ Received Host:", host);
+
+        // Handle the image if available
         const image = req.file ? req.file.filename : null;
 
-        // Insert the new event into the database
-        const [id] = await knex("PublicEvents").insert({
+        // Insert into PublicEvents table
+        await knex("PublicEvents").insert({
             title,
             description,
             event_date,
             location,
             host,
             image,
-            user_id, 
+            user_id,
         });
 
-        // Fetch the newly inserted event
-        const newPublicEvent = await knex("PublicEvents").where({ id }).first();
+        // Retrieve the last inserted ID (MySQL-specific)
+        const publicEventId = await knex("PublicEvents").max('id as maxId').first();
+
+        // Log the public event ID
+        console.log("Public Event ID:", publicEventId.maxId);  // Log the maxId for debugging
+
+        // Insert into Events table with event_type as 'public' using the same event ID
+        await knex("Events").insert({
+            id: publicEventId.maxId, // Use the maxId from PublicEvents
+            title,
+            description,
+            event_date,
+            location,
+            host,
+            event_type: 'public', // Set event_type to 'public'
+            image,
+            user_id,
+        });
+
+        // Retrieve and return the newly created public event
+        const newPublicEvent = await knex("PublicEvents").where({ id: publicEventId.maxId }).first();
         res.status(201).json(newPublicEvent);
+
     } catch (error) {
         console.error("❌ Error creating public event:", error);
         res.status(500).json({ error: "Failed to create public event" });
